@@ -5,7 +5,9 @@
     "scripts": {
         "start": "node index.js",
         "server": "nodemon index.js",
-        "ketchup": "git fetch && git reset --hard origin/lecture"
+        "ketchup": "git fetch && git reset --hard origin/lecture",
+        "devFruitsSchema:latest": "knex migrate:latest",
+        "devFruitsSchema:rollback": "knex migrate:rollback"
     },
     "repository": {
         "type": "git",

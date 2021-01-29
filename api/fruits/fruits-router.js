@@ -1,13 +1,19 @@
 const express = require('express');
-const knex = require('knex');
 
-const db = knex({
-  client: 'sqlite3',
-  connection: {
-    filename: './data/produce.db3'
-  },
-  useNullAsDefault: true
-});
+// compare this to the original code in the guided repo ... this is the "best
+// practice" way to do it... keep your db config out of your express router
+// code. That way, multiple router files can "require()" the same db config.
+// Keep it DRY!
+const db = require('../data/db-config.js');
+// const knex = require('knex');
+
+// const db = knex({
+//   client: 'sqlite3',
+//   connection: {
+//     filename: './data/produce.db3'
+//   },
+//   useNullAsDefault: true
+// });
 
 const router = express.Router();
 
